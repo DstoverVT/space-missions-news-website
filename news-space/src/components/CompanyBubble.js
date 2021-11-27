@@ -5,7 +5,7 @@ function bubbleParameters(inputSize, imageSrc) {
   return {
     particles: {
       number: {
-        value: 20,
+        value: 1,
         density: {
           enable: true,
           value_area: 800,
@@ -16,13 +16,6 @@ function bubbleParameters(inputSize, imageSrc) {
       },
       shape: {
         type: "image",
-        stroke: {
-          width: 0,
-          color: "#000000",
-        },
-        polygon: {
-          nb_sides: 5,
-        },
         image: {
           src: imageSrc,
           width: 100,
@@ -32,43 +25,18 @@ function bubbleParameters(inputSize, imageSrc) {
       opacity: {
         value: 0.9,
         random: false,
-        anim: {
-          enable: false,
-          speed: 1,
-          opacity_min: 0.1,
-          sync: false,
-        },
       },
       size: {
         value: inputSize,
         random: false,
-        anim: {
-          enable: false,
-          speed: 40,
-          size_min: 0.1,
-          sync: false,
-        },
-      },
-      line_linked: {
-        enable: false,
-        distance: 150,
-        color: "#ffffff",
-        opacity: 0.4,
-        width: 1,
       },
       move: {
         enable: true,
-        speed: 6,
+        speed: 10,
         direction: "none",
         random: false,
         straight: false,
-        out_mode: "out",
-        bounce: false,
-        attract: {
-          enable: false,
-          rotateX: 600,
-          rotateY: 1200,
-        },
+        out_mode: "bounce",
       },
     },
     interactivity: {
@@ -114,11 +82,8 @@ function bubbleParameters(inputSize, imageSrc) {
   };
 }
 
-function CompanyBubble() {
-  const bubbleOptions = bubbleParameters(
-    100,
-    "https://logos-world.net/wp-content/uploads/2020/09/SpaceX-Logo.png"
-  );
+function CompanyBubble(props) {
+  const bubbleOptions = bubbleParameters(100, props.src);
   return (
     <div>
       <Particles options={bubbleOptions} />
