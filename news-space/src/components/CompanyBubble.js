@@ -32,7 +32,7 @@ function bubbleParameters(inputSize, imageSrc) {
       },
       move: {
         enable: true,
-        speed: 10,
+        speed: 15,
         direction: "none",
         random: false,
         straight: false,
@@ -86,7 +86,7 @@ function CompanyBubble(props) {
   const bubbleOptions = bubbleParameters(100, props.src);
   return (
     <div>
-      <Particles options={bubbleOptions} />
+      <Particles id={props.id} options={bubbleOptions} />
     </div>
   );
 }
